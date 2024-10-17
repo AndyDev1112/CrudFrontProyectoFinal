@@ -1,0 +1,30 @@
+<div class="login">
+  <div class="login-triangle"></div>
+
+  <h2 class="login-header"><strong>AFG NETWORK S.A.S</strong></h2>
+
+  <h3 class="sub-title"><strong>Sistema de Gestión de Usuarios</strong></h3>
+
+  <form class="login-container" [formGroup]="login" method="post">
+    <p>
+      <input
+        type="text"
+        [(ngModel)]="user.email"
+        formControlName="email"
+        placeholder="Ingrese su correo electrónico"
+        required
+      />
+    </p>
+    <p>
+      <input
+        type="password"
+        [(ngModel)]="user.password"
+        formControlName="password"
+        placeholder="Ingrese su contraseña"
+        required
+      />
+    </p>
+    <p><input type="submit" value="Iniciar Sesión" (click)="signUp()" /></p>
+  </form>
+  
+ 

@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">{{titulo | uppercase}}</span>
+          <form class="mt-3" [formGroup]="userform" (ngSubmit)="adduser()">
+            <div class="mb-3">
+              <input type="text" formControlName="id" class="form-control form-control-lg" placeholder="id">
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="nombre"
+              class="form-control form-control-lg" placeholder="nombre">
+            </div>
+            <div class="text-danger"
+            *ngIf="userform.get('nombre')?.hasError('required') && userform.get('nombre')?.touched">
+              <span>El nombre de usuario es <strong>OBLIGATORIO</strong> </span>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="apellido"
+              class="form-control form-control-lg" placeholder="apellido">
+              <div class="text-danger"
+              *ngIf="userform.get('apellido')?.hasError('required') && userform.get('apellido')?.touched">
+                <span style="font-style: italic;">El apellido de usuario es <strong>OBLIGATORIO</strong> </span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="email"
+              class="form-control form-control-lg" placeholder="email">
+            </div>
+            <div class="text-danger"
+            *ngIf="userform.get('email')?.hasError('required') && userform.get('email')?.touched">
+              <span>El email del usuario es <strong>OBLIGATORIO</strong> </span>
+            </div>
+            <div class="mb-3">
+              <input type="password" formControlName="password"
+              class="form-control form-control-lg" placeholder="Contraseña">
+            </div>
+            <div class="text-danger"
+            *ngIf="userform.get('password')?.hasError('required') && userform.get('password')?.touched">
+              <span>La contraseña del usuario es <strong>OBLIGATORIA</strong> </span>
+            </div>
+            <div class="mb-3">
+              <button routerLink="/listUsers" class="btn btn-secondary btn-lg float-start">ATRAS</button>
+              <button type="submit" class="btn btn-primary btn-lg float-end ">OK</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
